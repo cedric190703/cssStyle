@@ -1,0 +1,301 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --card-height: 40vh;
+    --card-width: 40vh;
+    --card-color:#191c29;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+body{
+    background-color: rgb(37, 37, 37);
+}
+
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 100deg;
+    inherits: false;
+}
+
+.first{
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.first .card1{
+    background: var(--card-color);
+    width: var(--card-width);
+    height: var(--card-height);
+    padding: 3px;
+    position: relative;
+    margin-left: 40%;
+    border-radius: 50%;
+    margin-top: 10%;
+}
+
+.card1::after {
+    position: absolute;
+    content: "";
+    left: -50%;
+    top: -50%;
+    right: 0;
+    z-index: -1;
+    height: 200%;
+    width: 200%;
+    border-radius: 50%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(
+      var(--rotate)
+      , #5ddcff, #3c67e3 43%, #4e00c2);
+      opacity: 1;
+    transition: opacity .5s;
+    animation: spin 5s linear infinite;
+}
+
+.second {
+    color:#c20000;
+    margin-top: 10%;
+    text-align: center;
+    margin-top: 20%;
+}
+
+.second .card2{
+    position: relative;
+    margin-left: 50%;
+    padding: 3px;
+    margin-top: 10%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    margin-bottom: 10%;
+    font-size: xx-large;
+}
+
+.second .card2::after{
+    position: absolute;
+    content: "";
+    top: -50%;
+    right: 0;
+    z-index: -1;
+    height: 200%;
+    width: 100%;
+    margin: 0 auto;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 5));
+    background-image: linear-gradient(
+      var(--rotate)
+      , #ff0606, #e3763c 43%, #c20000);
+    transition: opacity 1s;
+    animation: lave 5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+      --rotate: 0deg;
+    }
+    10%{
+        --rotate: 10deg;
+    }
+    20%{
+        --rotate: 25deg;
+    }
+    25%{
+        --rotate: 50deg;
+    }
+    50%{
+        --rotate: 120deg;
+    }
+    60%{
+        --rotate:180deg;
+    }
+    70%{
+        --rotate: 250deg;
+    }
+    80%{
+        --rotate:300deg;
+    }
+    90%{
+        --rotate:320deg;
+    }
+    100% {
+      --rotate: 360deg;
+    }
+}
+
+@keyframes lave{
+    0%{
+        --rotate:100deg;
+    }
+    50%{
+        --rotate:275deg;
+    }
+    100%{
+        --rotate:360deg;
+    }
+}
+
+header{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.252);
+}
+
+header .menu{
+    display: flex;
+    grid-gap: 35px;
+    margin-top: 5%;
+}
+
+header h1{
+    margin-top: 25%;
+}
+
+header img{
+    width: 40%;
+    border-radius: 50%;
+}
+
+textarea{
+    resize: none;
+}
+
+footer{
+    display: flex;
+    margin-top: 350px;
+    margin-left: 50%;
+    transform: translate(-50%);
+    grid-gap: 50px;
+}
+
+input{
+    height: 50px;
+}
+
+footer button{
+    width: 150px;
+    height: 65px;
+}
+
+@keyframes animate1{
+    0%{
+        left: -100%;
+    }
+    50%,100%{
+        left:100%;
+    }
+}
+
+@keyframes animate2{
+    0%{
+        top: -100%;
+    }
+    50%,100%{
+        top:100%;
+    }
+}
+
+@keyframes animate3{
+    0%{
+        right: -100%;
+    }
+    50%,100%{
+        right: 100%;
+    }
+}
+
+@keyframes animate4{
+    0%{
+        bottom: -100%;
+    }
+    50%,100%{
+        bottom:100%;
+    }
+}
+
+a{
+    color: #03e9f4;
+    position: relative;
+    display: inline-block;
+    padding: 30px;
+    margin: 25px;
+    text-decoration: none;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+}
+
+a:hover{
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
+a:nth-child(1){
+    filter: hue-rotate(390deg);
+}
+
+a:nth-child(2){
+    filter: hue-rotate(180deg);
+}
+
+a:nth-child(3){
+    filter: hue-rotate(630deg);
+}
+
+a span{
+    position: absolute;
+    display: block;
+}
+
+a span:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,#03e9f4);
+    animation: animate1 1s linear infinite;
+}
+
+a span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#03e9f4);
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+a span:nth-child(3){
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent,#03e9f4);
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.50s;
+}
+
+a span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#03e9f4);
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
